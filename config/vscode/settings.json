@@ -1,0 +1,65 @@
+{
+    // Theme
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "catppuccin.accentColor": "pink",
+    "catppuccin.boldKeywords": true,
+    "catppuccin.italicComments": true,
+    "catppuccin.italicKeywords": true,
+    "catppuccin.syncWithIconPack": true,
+    "catppuccin.customUIColors": {
+        "all": {
+            "editorCursor.foreground": "accent",
+            "statusBarItem.remoteBackground":"accent"
+        }
+    },
+
+    // Icons
+    "workbench.iconTheme": "catppuccin-mocha",
+
+    // Cursor
+    "editor.cursorBlinking": "expand",
+    "editor.cursorSmoothCaretAnimation": "on",
+
+    // Font
+    "editor.fontFamily": "'FiraCode Nerd Font Ret', 'FiraCode Nerd Font', 'Fira Code', 'Droid Sans Mono', 'monospace'",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+
+    // Terminal
+    "terminal.integrated.fontFamily": "'Droid Sans Mono', 'monospace'",
+
+    // TitleBar
+    "window.titleBarStyle": "native",
+
+    // MenuBar
+    "window.menuBarVisibility": "toggle",
+
+    // SecondarySideBar
+    "workbench.secondarySideBar.showLabels": false,
+
+    // Whitespaces
+    "files.trimTrailingWhitespace": true,
+
+    // Debug
+    "debug.allowBreakpointsEverywhere": true,
+
+    // Diff mode
+    "diffEditor.ignoreTrimWhitespace": true,
+
+    // Python
+    "python.analysis.typeCheckingMode": "standard",
+    "python.analysis.inlayHints.variableTypes": true,
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.pytestParameters": true,
+    "python.analysis.inlayHints.callArgumentNames": "partial",
+
+    // C++
+    "C_Cpp.inlayHints.referenceOperator.enabled": true,
+    "C_Cpp.inlayHints.parameterNames.enabled": true,
+    "C_Cpp.inlayHints.parameterNames.hideLeadingUnderscores": true,
+    "C_Cpp.inlayHints.autoDeclarationTypes.enabled": true,
+    "C_Cpp.inlayHints.parameterNames.suppressWhenArgumentContainsName": true,
+
+    // Copilot
+    "chat.commandCenter.enabled": false
+}
