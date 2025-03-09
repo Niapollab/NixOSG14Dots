@@ -1,0 +1,49 @@
+{
+    "recommendations": [
+        // Theme
+        "Catppuccin.catppuccin-vsc",
+        // Icons
+        "Catppuccin.catppuccin-vsc-icons",
+        // Errors inlining
+        "usernamehw.errorlens",
+        // Colorful comments
+        "aaron-bond.better-comments",
+        // Gitlens
+        "eamodio.gitlens",
+        // Hex editor
+        "ms-vscode.hexeditor",
+        // Bookmarks
+        "alefragnani.Bookmarks",
+        // Remote development
+        "ms-vscode-remote.vscode-remote-extensionpack",
+        // Russian language support
+        "MS-CEINTL.vscode-language-pack-ru",
+        // Default Keybindings
+        "smcpeak.default-keys-windows",
+        // Markdown
+        "yzhang.markdown-all-in-one",
+        "DavidAnson.vscode-markdownlint",
+        // Shell-check
+        "timonwong.shellcheck",
+        // Docker
+        "ms-azuretools.vscode-docker",
+        // Nix
+        "bbenoist.Nix",
+        // Python
+        "ms-python.python",
+        "charliermarsh.ruff",
+        // Python (Jupyter)
+        "ms-toolsai.jupyter",
+        // C#
+        "ms-dotnettools.csdevkit",
+        // Rust
+        "rust-lang.rust-analyzer",
+        // C++
+        "ms-vscode.cpptools-extension-pack",
+        // PDF Reader
+        "tomoki1207.pdf",
+        // Intelligence
+        "VisualStudioExptTeam.vscodeintellicode",
+        "VisualStudioExptTeam.vscodeintellicode-completions"
+    ]
+}
