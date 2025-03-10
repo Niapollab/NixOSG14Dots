@@ -9,6 +9,10 @@
     "catppuccin.customUIColors": {
         "all": {
             "editorCursor.foreground": "accent",
+            "editorInlayHint.background": "base",
+            "editorInlayHint.parameterBackground": "base",
+            "editorInlayHint.typeBackground": "base",
+            "editorInlayHint.typeForeground": "subtext0",
             "statusBarItem.remoteBackground":"accent"
         }
     },
