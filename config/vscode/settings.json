@@ -32,9 +32,6 @@
     // Terminal
     "terminal.integrated.fontFamily": "'Droid Sans Mono', 'monospace'",
 
-    // TitleBar
-    "window.titleBarStyle": "native",
-
     // MenuBar
     "window.menuBarVisibility": "toggle",
 
