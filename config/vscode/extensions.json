@@ -44,6 +44,7 @@
         "tomoki1207.pdf",
         // Intelligence
         "VisualStudioExptTeam.vscodeintellicode",
-        "VisualStudioExptTeam.vscodeintellicode-completions"
+        "VisualStudioExptTeam.vscodeintellicode-completions",
+        "Codeium.codeium"
     ]
 }
