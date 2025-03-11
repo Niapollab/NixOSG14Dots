@@ -30,7 +30,7 @@
     "editor.fontSize": 14,
 
     // Terminal
-    "terminal.integrated.fontFamily": "'Droid Sans Mono', 'monospace'",
+    "terminal.integrated.fontLigatures.enabled": true,
 
     // MenuBar
     "window.menuBarVisibility": "toggle",
