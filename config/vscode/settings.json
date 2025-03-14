@@ -16,6 +16,8 @@
             "statusBarItem.remoteBackground":"accent"
         }
     },
+    "bookmarks.gutterIconBorderColor": "#89b4fa",
+    "bookmarks.gutterIconFillColor": "#89b4fa",
 
     // Icons
     "workbench.iconTheme": "catppuccin-mocha",
