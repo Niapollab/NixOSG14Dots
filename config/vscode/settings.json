@@ -33,6 +33,7 @@
 
     // Terminal
     "terminal.integrated.fontLigatures.enabled": true,
+    "terminal.integrated.fontSize": 12,
 
     // MenuBar
     "window.menuBarVisibility": "toggle",
