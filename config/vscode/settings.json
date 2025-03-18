@@ -16,8 +16,30 @@
             "statusBarItem.remoteBackground":"accent"
         }
     },
-    "bookmarks.gutterIconBorderColor": "#89b4fa",
-    "bookmarks.gutterIconFillColor": "#89b4fa",
+    "bookmarks.gutterIconBorderColor": "#89b4fa", // blue
+    "bookmarks.gutterIconFillColor": "#89b4fa", // blue
+    "better-comments.tags": [
+        {
+            "tag": "!",
+            "color": "#f38ba8", // red
+            "italic": true
+        },
+        {
+            "tag": "?",
+            "color": "#89b4fa", // blue
+            "italic": true
+        },
+        {
+            "tag": "todo",
+            "color": "#fab387", // peach
+            "italic": true
+        },
+        {
+            "tag": "*",
+            "color": "#a6e3a1", // green
+            "italic": true
+        }
+    ],
 
     // Icons
     "workbench.iconTheme": "catppuccin-mocha",
