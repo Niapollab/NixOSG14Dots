@@ -91,5 +91,6 @@
     "C_Cpp.inlayHints.parameterNames.suppressWhenArgumentContainsName": true,
 
     // Copilot
-    "chat.commandCenter.enabled": false
+    "chat.commandCenter.enabled": false,
+    "chat.experimental.statusIndicator.enabled": false
 }
