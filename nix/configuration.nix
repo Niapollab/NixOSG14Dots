@@ -123,6 +123,7 @@
           "docker"
           "lp"
           "scanner"
+          "libvirtd"
         ];
       };
     };
@@ -134,6 +135,7 @@
     steam.enable = true;
     zsh.enable = true;
     direnv.enable = true;
+    virt-manager.enable = true;
     nautilus-open-any-terminal = {
       enable = true;
       terminal = "alacritty";
@@ -204,6 +206,13 @@
 
   # Virtualization
   virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu = {
+        swtpm.enable = true;
+        vhostUserPackages = with pkgs; [ virtiofsd ];
+      };
+    };
     docker = {
       enable = true;
       storageDriver = "btrfs";
