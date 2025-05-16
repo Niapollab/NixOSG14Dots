@@ -240,7 +240,6 @@
       eza
       fastfetch
       fzf
-      ghidra
       gimp
       gnome-mines
       gnomeExtensions.blur-my-shell
@@ -256,16 +255,14 @@
       jq
       ltrace
       micro
-      mitmproxy
       mission-center
+      mitmproxy
       nekoray
       obs-studio
       pokeget-rs
       qbittorrent
       remmina
       rnote
-      # error: builder for '/nix/store/jw3laspbclxdfc00p8hrhimx1w0sdvwl-rustdesk-1.3.1.drv' failed with exit code 101
-      # rustdesk
       scrcpy
       shotcut
       skypeforlinux
@@ -274,6 +271,7 @@
       tlrc
       unstable.ayugram-desktop
       unstable.devenv
+      unstable.ghidra
       unstable.nwg-look
       unstable.vesktop
       vlc
