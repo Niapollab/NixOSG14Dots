@@ -39,6 +39,13 @@
     ];
   };
 
+  # Memory
+  zramSwap.enable = true;
+  swapDevices = [{
+    device = "/swapfile";
+    size = 24 * 1024;
+  }];
+
   # Network settings
   networking = {
     networkmanager.enable = true;
