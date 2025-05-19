@@ -159,6 +159,7 @@
     libinput.enable = true;
     zerotierone.enable = true;
     earlyoom.enable = true;
+    blueman.enable = true;
     avahi = {
       enable = true;
       nssmdns4 = true;
