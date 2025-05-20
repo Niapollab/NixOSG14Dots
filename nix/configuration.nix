@@ -50,9 +50,27 @@
   networking = {
     networkmanager.enable = true;
     hostName = config.constants.hostName;
-    # Fix problems with Nekoray DNS resolving
-    # See: https://github.com/MatsuriDayo/nekoray/issues/1437
-    firewall.checkReversePath = false;
+    firewall = {
+      # Prevent Docker bypasses NixOS firewall exposing ports on the external interface
+      # Truncate DOCKER-USER chain
+      # Allow loopback and Docker bridge traffic
+      # Allow return or bridged (container-to-container) traffic
+      # Block everything else
+      # See: https://github.com/NixOS/nixpkgs/issues/111852
+      extraCommands = ''
+        iptables -N DOCKER-USER 2>/dev/null || true
+        iptables -F DOCKER-USER
+        iptables -A DOCKER-USER -i lo -j ACCEPT
+        iptables -A DOCKER-USER -i docker0 -j ACCEPT
+        iptables -A DOCKER-USER -m state --state RELATED,ESTABLISHED -j ACCEPT
+        iptables -A DOCKER-USER -m physdev --physdev-is-bridged -j ACCEPT
+        iptables -A DOCKER-USER -j DROP
+        iptables -A DOCKER-USER -j RETURN
+      '';
+      # Fix problems with Nekoray DNS resolving
+      # See: https://github.com/MatsuriDayo/nekoray/issues/1437
+      checkReversePath = false;
+    };
   };
 
   hardware = {
