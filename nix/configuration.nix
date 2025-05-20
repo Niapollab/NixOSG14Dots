@@ -274,6 +274,7 @@
       micro
       mission-center
       mitmproxy
+      ncdu
       nekoray
       obs-studio
       pokeget-rs
