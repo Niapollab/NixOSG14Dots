@@ -301,7 +301,6 @@
       rnote
       scrcpy
       shotcut
-      skypeforlinux
       smile
       tenacity
       tlrc
