@@ -74,8 +74,6 @@
   };
 
   hardware = {
-    # Enable sound with pipewire.
-    pulseaudio.enable = false;
     # Enable scanning support
     sane.enable = true;
     # Fix issue with screen flickering
@@ -91,7 +89,7 @@
 
   # Fonts
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    nerd-fonts.fira-code
     fira-code
   ];
 
@@ -216,6 +214,8 @@
         pkgs.xterm
       ];
     };
+    # Enable sound with pipewire.
+    pulseaudio.enable = false;
     pipewire = {
       enable = true;
       alsa.enable = true;
