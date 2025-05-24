@@ -280,7 +280,6 @@
       gnomeExtensions.blur-my-shell
       gnomeExtensions.caffeine
       gnomeExtensions.fuzzy-app-search
-      gnomeExtensions.impatience
       gnomeExtensions.just-perfection
       gnomeExtensions.pano
       gnomeExtensions.tray-icons-reloaded
