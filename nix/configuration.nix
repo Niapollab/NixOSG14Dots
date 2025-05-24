@@ -349,7 +349,7 @@
     shellAliases = {
       system-prune = "nix-store --gc";
       system-rebuild = "sudo nixos-rebuild switch";
-      system-update = "sudo nix-channel --update && system-rebuild";
+      system-update = "system-rebuild --upgrade";
       nix-try = "nix-shell --run \"$SHELL\" --packages";
       nix-try-unstable = "nix-shell -I 'nixpkgs=https://github.com/NixOS/nixpkgs/archive/nixpkgs-unstable.tar.gz' --run \"$SHELL\" --packages";
       fastfetch = "${pkgs.pokeget-rs}/bin/pokeget random --shiny --hide-name | ${pkgs.fastfetch}/bin/fastfetch --file-raw -";
