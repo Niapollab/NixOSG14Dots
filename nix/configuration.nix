@@ -277,6 +277,7 @@
       fzf
       gimp
       gnome-mines
+      gnome-tweaks
       gnomeExtensions.blur-my-shell
       gnomeExtensions.caffeine
       gnomeExtensions.fuzzy-app-search
