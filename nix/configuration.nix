@@ -29,12 +29,13 @@
     initrd.verbose = false;
     consoleLogLevel = 0;
     kernelParams = [
-      "quiet"
-      "splash"
+      "amd_iommu=on"
       "boot.shell_on_fail"
       "loglevel=3"
+      "quiet"
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
+      "splash"
       "udev.log_priority=3"
     ];
   };
@@ -366,10 +367,19 @@
       system-prune = "nix-store --gc";
       system-rebuild = "sudo nixos-rebuild switch";
       system-update = "system-rebuild --upgrade";
+
       nix-try = "nix-shell --run \"$SHELL\" --packages";
       nix-try-unstable = "nix-shell -I 'nixpkgs=https://github.com/NixOS/nixpkgs/archive/nixpkgs-unstable.tar.gz' --run \"$SHELL\" --packages";
+
+      goto-multi-user = "sudo systemctl isolate multi-user.target; exit";
+      goto-graphical = "sudo systemctl isolate graphical.target; exit";
+
       fastfetch = "${pkgs.pokeget-rs}/bin/pokeget random --shiny --hide-name | ${pkgs.fastfetch}/bin/fastfetch --file-raw -";
       neofetch = "fastfetch";
+
+      nvidia-passthrough = "sudo modprobe -r nvidia_drm nvidia_uvm nvidia_modeset nvidia && sudo modprobe vfio vfio_iommu_type1 vfio_pci && sudo virsh nodedev-detach pci_0000_01_00_0 && sudo virsh nodedev-detach pci_0000_01_00_1";
+      nvidia-reattach = "sudo virsh nodedev-reattach pci_0000_01_00_1 && sudo virsh nodedev-reattach pci_0000_01_00_0 && sudo modprobe -r vfio_pci vfio_iommu_type1 vfio && sudo modprobe nvidia_drm nvidia_uvm nvidia_modeset nvidia";
+      nvidia-run = "__GLX_VENDOR_LIBRARY_NAME=nvidia __NV_PRIME_RENDER_OFFLOAD=1";
     };
   };
 
