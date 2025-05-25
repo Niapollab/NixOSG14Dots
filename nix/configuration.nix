@@ -162,6 +162,7 @@
           "lp"
           "scanner"
           "libvirtd"
+          "qemu-libvirtd"
         ];
       };
     };
