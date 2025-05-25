@@ -304,6 +304,7 @@
       inkscape
       jadx
       jq
+      looking-glass-client
       ltrace
       micro
       mission-center
