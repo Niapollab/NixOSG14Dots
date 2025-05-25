@@ -262,6 +262,10 @@
     };
   };
 
+  systemd.tmpfiles.rules = [
+    "f /dev/shm/looking-glass 0660 ${config.constants.mainUser.nickname} libvirtd -"
+  ];
+
   # Allow unfree packages and unstable channel
   nixpkgs = {
     config = {
