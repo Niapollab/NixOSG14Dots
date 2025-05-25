@@ -52,20 +52,34 @@
     hostName = config.constants.hostName;
     firewall = {
       # Prevent Docker bypasses NixOS firewall exposing ports on the external interface
-      # Truncate DOCKER-USER chain
-      # Allow loopback and Docker bridge traffic
-      # Allow return or bridged (container-to-container) traffic
-      # Block everything else
+      # Required: virtualization.docker.extraOptions = "--iptables=false --ip6tables=false";
       # See: https://github.com/NixOS/nixpkgs/issues/111852
       extraCommands = ''
-        iptables -N DOCKER-USER 2>/dev/null || true
-        iptables -F DOCKER-USER
-        iptables -A DOCKER-USER -i lo -j ACCEPT
-        iptables -A DOCKER-USER -i docker0 -j ACCEPT
-        iptables -A DOCKER-USER -m state --state RELATED,ESTABLISHED -j ACCEPT
-        iptables -A DOCKER-USER -m physdev --physdev-is-bridged -j ACCEPT
-        iptables -A DOCKER-USER -j DROP
-        iptables -A DOCKER-USER -j RETURN
+        iptables -N DOCKER-ISOLATION-STAGE-1
+        iptables -N DOCKER-ISOLATION-STAGE-2
+        iptables -N DOCKER
+        iptables -N FALLBACK-FW
+
+        iptables -A FORWARD -j DOCKER-ISOLATION-STAGE-1
+        iptables -A DOCKER-ISOLATION-STAGE-1 -i docker0 ! -o docker0 -j DOCKER-ISOLATION-STAGE-2
+        iptables -A DOCKER-ISOLATION-STAGE-1 -j RETURN
+
+        iptables -A DOCKER-ISOLATION-STAGE-2 -o docker0 -j DROP
+        iptables -A DOCKER-ISOLATION-STAGE-2 -j RETURN
+
+        iptables -A FORWARD -j DOCKER
+        iptables -A DOCKER -o docker0 -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+        iptables -A DOCKER -i docker0 -j ACCEPT
+        iptables -A DOCKER -j RETURN
+
+        iptables -A FORWARD -j FALLBACK-FW
+        iptables -A FALLBACK-FW -j DROP
+
+        iptables -t nat -N DOCKER-POSTROUTING
+
+        iptables -t nat -A POSTROUTING -j DOCKER-POSTROUTING
+        iptables -t nat -A DOCKER-POSTROUTING -s 172.17.0.0/16 ! -o docker0 -j MASQUERADE
+        iptables -t nat -A DOCKER-POSTROUTING -j RETURN
       '';
       # Fix problems with Nekoray DNS resolving
       # See: https://github.com/MatsuriDayo/nekoray/issues/1437
@@ -242,6 +256,7 @@
     docker = {
       enable = true;
       storageDriver = "btrfs";
+      extraOptions = "--iptables=false --ip6tables=false";
     };
   };
 
