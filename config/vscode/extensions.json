@@ -28,7 +28,7 @@
         // Docker
         "ms-azuretools.vscode-docker",
         // Nix
-        "bbenoist.Nix",
+        "jnoortheen.nix-ide",
         // Python
         "ms-python.python",
         "charliermarsh.ruff",
