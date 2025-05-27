@@ -16,8 +16,7 @@
         "vm.dirty_background_bytes" = 4 * 1024 * 1024;
       };
     };
-    # kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = pkgs.linuxPackages_6_12;
+    kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
