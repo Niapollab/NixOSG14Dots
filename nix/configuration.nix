@@ -352,7 +352,11 @@
       ];
     };
     sessionVariables = {
+      # Cursor theme for XWayland apps
       XCURSOR_THEME = "Bibata-Modern-Ice";
+
+      # Use OpenGL rendering to prevent Nvidia GPU awake if it's not required
+      GSK_RENDERER = "ngl";
 
       # Support 256 colors in TTY
       TERM = "xterm-256color";
