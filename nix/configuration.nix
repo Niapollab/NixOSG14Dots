@@ -16,7 +16,8 @@
         "vm.dirty_background_bytes" = 4 * 1024 * 1024;
       };
     };
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_12;
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -88,6 +89,8 @@
   };
 
   hardware = {
+    # Enable sound with pipewire.
+    pulseaudio.enable = false;
     # Enable scanning support
     sane.enable = true;
     # Fix issue with screen flickering
@@ -103,7 +106,7 @@
 
   # Fonts
   fonts.packages = with pkgs; [
-    nerd-fonts.fira-code
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
     fira-code
   ];
 
@@ -229,8 +232,6 @@
         pkgs.xterm
       ];
     };
-    # Enable sound with pipewire.
-    pulseaudio.enable = false;
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -260,10 +261,6 @@
       extraOptions = "--iptables=false --ip6tables=false";
     };
   };
-
-  systemd.tmpfiles.rules = [
-    "f /dev/shm/looking-glass 0660 ${config.constants.mainUser.nickname} libvirtd -"
-  ];
 
   # Allow unfree packages and unstable channel
   nixpkgs = {
@@ -301,6 +298,7 @@
       gnomeExtensions.blur-my-shell
       gnomeExtensions.caffeine
       gnomeExtensions.fuzzy-app-search
+      gnomeExtensions.impatience
       gnomeExtensions.just-perfection
       gnomeExtensions.pano
       gnomeExtensions.tray-icons-reloaded
@@ -308,7 +306,6 @@
       inkscape
       jadx
       jq
-      looking-glass-client
       ltrace
       micro
       mission-center
@@ -352,11 +349,13 @@
       ];
     };
     sessionVariables = {
-      # Cursor theme for XWayland apps
+      # See https://gitlab.gnome.org/GNOME/mutter/-/issues/2969
+      # And https://discussion.fedoraproject.org/t/window-appears-with-a-delay/136157/16
+      # Use integrated GPU for gnome-shell
+      __EGL_VENDOR_LIBRARY_FILENAMES = "${pkgs.mesa.drivers}/share/glvnd/egl_vendor.d/50_mesa.json";
+      __GLX_VENDOR_LIBRARY_NAME = "mesa";
+      GSK_RENDERER = "gl";
       XCURSOR_THEME = "Bibata-Modern-Ice";
-
-      # Use OpenGL rendering to prevent Nvidia GPU awake if it's not required
-      GSK_RENDERER = "ngl";
 
       # Support 256 colors in TTY
       TERM = "xterm-256color";
