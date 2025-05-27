@@ -352,17 +352,7 @@
       ];
     };
     sessionVariables = {
-      # See https://gitlab.gnome.org/GNOME/mutter/-/issues/2969
-      # And https://discussion.fedoraproject.org/t/window-appears-with-a-delay/136157/16
-      # Use integrated GPU for gnome-shell
-      __EGL_VENDOR_LIBRARY_FILENAMES = "${pkgs.mesa}/share/glvnd/egl_vendor.d/50_mesa.json";
-      __GLX_VENDOR_LIBRARY_NAME = "mesa";
-      GSK_RENDERER = "gl";
-
       XCURSOR_THEME = "Bibata-Modern-Ice";
-
-      # Fix scale in Java applications
-      # _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
 
       # Support 256 colors in TTY
       TERM = "xterm-256color";
