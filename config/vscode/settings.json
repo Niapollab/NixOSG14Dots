@@ -57,6 +57,8 @@
     "terminal.integrated.fontLigatures.enabled": true,
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
 
     // MenuBar
     "window.menuBarVisibility": "toggle",
